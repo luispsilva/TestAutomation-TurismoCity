@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.PendingException;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -62,8 +62,9 @@ public class SearchAirTickestStep extends BasePage {
 	
 	@When("^Choose multiple destinations$")
 	public void choose_multiple_destinations() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    
+		SearchAirTicketsPage multipleDestinations = new SearchAirTicketsPage(driver);
+		multipleDestinations.getMultipleDestinations();
 	}
 
 
@@ -74,6 +75,13 @@ public class SearchAirTickestStep extends BasePage {
 
 		date.getRoundTripDate();
 
+	}
+	
+	@When("^Choose trip date multiple destinations$")
+	public void choose_round_trip_date_multiple_destinations() throws Throwable {
+	    
+		SearchAirTicketsPage dateTripMultiple = new SearchAirTicketsPage(driver);
+		dateTripMultiple.getTripDateMultipleDestinations();
 	}
 	
 	@When("^Choose depart trip date$")
@@ -89,12 +97,26 @@ public class SearchAirTickestStep extends BasePage {
 		SearchAirTicketsPage passangers = new SearchAirTicketsPage(driver);
 		passangers.getQuantityPassangers();
 	}
+	
+	@When("^Choose quantity of passangers from multiple destinations$")
+	public void choose_quantity_of_passangers_from_multiple_destinations() throws Throwable {
+
+		SearchAirTicketsPage quantityPassangersMultiDestinations = new SearchAirTicketsPage(driver);
+		quantityPassangersMultiDestinations.getPassangersFromMultipleDestinations();
+	}
+
 
 	@When("^Choose kind of class$")
 	public void choose_kind_of_class() throws Throwable {
 
 		SearchAirTicketsPage travelClass = new SearchAirTicketsPage(driver);
 		travelClass.getTravelClass();
+	}
+	
+	@When("^Choose kind of class from multiple destinations$")
+	public void choose_kind_of_class_from_multiple_destinations() throws Throwable {
+		SearchAirTicketsPage classFromMultipleDestinations = new SearchAirTicketsPage(driver);
+		classFromMultipleDestinations.getKindOfClassFromMultipleDestinations();
 	}
 
 	@When("^Click on Search button$")
@@ -103,14 +125,27 @@ public class SearchAirTickestStep extends BasePage {
 		SearchAirTicketsPage clickOnSearchButton = new SearchAirTicketsPage(driver);
 		clickOnSearchButton.getClickOnSearch().click();
 	}
+	
+	@When("^Click on Search button from multiple destinations$")
+	public void click_on_Search_button_from_multiple_destinations() throws Throwable {
+		
+		SearchAirTicketsPage clickOnSearchFromMultiDestinations = new SearchAirTicketsPage(driver);
+		clickOnSearchFromMultiDestinations.getClickOnSearchFromMultipleDestinations();
+	}
 
 	@Then("^The options of air tickets are shown$")
 	public void the_options_of_air_tickets_are_shown() throws Throwable {
 		
-		wait = new WebDriverWait(driver,10);
+		wait = new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.button.variation1")));
 		
 		Assert.assertTrue(driver.findElement(By.cssSelector("a.button.variation1")).isDisplayed());
+	}
+	
+	@Then("^The browser is closed$")
+	public void the_browser_is_closed() throws Throwable {
+
+		driver.quit();
 	}
 
 }
