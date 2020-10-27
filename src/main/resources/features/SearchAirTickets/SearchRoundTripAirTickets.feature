@@ -9,3 +9,4 @@ And  Choose quantity of passangers
 And  Choose kind of class
 And  Click on Search button
 Then The options of air tickets are shown
+Then The browser is closed

@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,17 +16,18 @@ import pages.BasePage;
 import pages.SearchAirTicketsPage;
 
 @RunWith(Cucumber.class)
-public class SearchAirTickestStep extends BasePage {
+public class SearchAirTicketsStep extends BasePage {
 
 	public WebDriver driver;
 	public WebDriverWait wait;
-
+	
+	
 	@Given("^The browser is initialized$")
 	public void the_browser_is_initialized() throws Throwable {
 
 		driver = initializeBrowser();
 	}
-
+	
 	@When("^User go to \"([^\"]*)\" site$")
 	public void user_go_to_site(String arg1) throws Throwable {
 
@@ -36,12 +36,12 @@ public class SearchAirTickestStep extends BasePage {
 	
 	@When("^Choose one way option$")
 	public void choose_one_way_option() throws Throwable {
-	   
+
 		SearchAirTicketsPage oneWay = new SearchAirTicketsPage(driver);
 		oneWay.getOneWayOption().click();
+		
 	}
-
-
+	
 	@When("^Choose source and destination$")
 	public void choose_source_and_destination() throws Throwable {
 
@@ -62,24 +62,22 @@ public class SearchAirTickestStep extends BasePage {
 	
 	@When("^Choose multiple destinations$")
 	public void choose_multiple_destinations() throws Throwable {
-	    
+
 		SearchAirTicketsPage multipleDestinations = new SearchAirTicketsPage(driver);
 		multipleDestinations.getMultipleDestinations();
 	}
-
-
+	
 	@When("^Choose round trip date$")
 	public void choose_round_trip_date() throws Throwable {
 
 		SearchAirTicketsPage date = new SearchAirTicketsPage(driver);
 
 		date.getRoundTripDate();
-
 	}
 	
 	@When("^Choose trip date multiple destinations$")
 	public void choose_round_trip_date_multiple_destinations() throws Throwable {
-	    
+
 		SearchAirTicketsPage dateTripMultiple = new SearchAirTicketsPage(driver);
 		dateTripMultiple.getTripDateMultipleDestinations();
 	}
@@ -89,8 +87,7 @@ public class SearchAirTickestStep extends BasePage {
 		SearchAirTicketsPage departDate = new SearchAirTicketsPage(driver);
 		departDate.getDepartTripDate();
 	}
-
-
+	
 	@When("^Choose quantity of passangers$")
 	public void choose_quantity_of_passangers() throws Throwable {
 
@@ -104,8 +101,7 @@ public class SearchAirTickestStep extends BasePage {
 		SearchAirTicketsPage quantityPassangersMultiDestinations = new SearchAirTicketsPage(driver);
 		quantityPassangersMultiDestinations.getPassangersFromMultipleDestinations();
 	}
-
-
+	
 	@When("^Choose kind of class$")
 	public void choose_kind_of_class() throws Throwable {
 
@@ -118,7 +114,7 @@ public class SearchAirTickestStep extends BasePage {
 		SearchAirTicketsPage classFromMultipleDestinations = new SearchAirTicketsPage(driver);
 		classFromMultipleDestinations.getKindOfClassFromMultipleDestinations();
 	}
-
+	
 	@When("^Click on Search button$")
 	public void click_on_Search_button() throws Throwable {
 
@@ -128,19 +124,19 @@ public class SearchAirTickestStep extends BasePage {
 	
 	@When("^Click on Search button from multiple destinations$")
 	public void click_on_Search_button_from_multiple_destinations() throws Throwable {
-		
+
 		SearchAirTicketsPage clickOnSearchFromMultiDestinations = new SearchAirTicketsPage(driver);
 		clickOnSearchFromMultiDestinations.getClickOnSearchFromMultipleDestinations();
 	}
-
+	
 	@Then("^The options of air tickets are shown$")
 	public void the_options_of_air_tickets_are_shown() throws Throwable {
 		
-		wait = new WebDriverWait(driver,20);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.button.variation1")));
-		
-		Assert.assertTrue(driver.findElement(By.cssSelector("a.button.variation1")).isDisplayed());
-	}
+			wait = new WebDriverWait(driver, 20);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.button.variation1")));
+
+			Assert.assertTrue(driver.findElement(By.cssSelector("a.button.variation1")).isDisplayed());
+		}
 	
 	@Then("^The browser is closed$")
 	public void the_browser_is_closed() throws Throwable {

@@ -26,7 +26,7 @@ public class SearchAirTicketsPage {
 	public SearchAirTicketsPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
+	
 	public WebElement getSourceClick1() {
 		return driver.findElement(sourceclick1);
 	}
@@ -134,25 +134,25 @@ public class SearchAirTicketsPage {
 
 		driver.findElement(By.xpath("(//span[@class='select2-choice select2-choice-custom hbox'])[1]")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 1']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 1']")).sendKeys("sao");
+		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 1']")).sendKeys("sal");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 1']")).sendKeys(Keys.ENTER);
 
 		driver.findElement(By.xpath("(//span[@class='select2-choice select2-choice-custom hbox'])[2]")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 1']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 1']")).sendKeys("rio");
+		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 1']")).sendKeys("sao");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 1']")).sendKeys(Keys.ENTER);
 
 		driver.findElement(By.xpath("(//span[@class='select2-choice select2-choice-custom hbox'])[3]")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 2']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 2']")).sendKeys("rec");
+		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 2']")).sendKeys("rio");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='Origem do Percurso 2']")).sendKeys(Keys.ENTER);
 
 		driver.findElement(By.xpath("(//span[@class='select2-choice select2-choice-custom hbox'])[4]")).click();
 		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 2']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 2']")).sendKeys("for");
+		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 2']")).sendKeys("sao");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@placeholder='Destino do percurso 2']")).sendKeys(Keys.ENTER);
 	}
@@ -167,7 +167,7 @@ public class SearchAirTicketsPage {
 		for (int i = 0; i < dateMultiple1.size(); i++) {
 
 			String text = dateMultiple1.get(i).getText();
-			if (text.equalsIgnoreCase("23")) {
+			if (text.equalsIgnoreCase("27")) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].click();", dateMultiple1.get(i));
 				break;
@@ -185,7 +185,7 @@ public class SearchAirTicketsPage {
 		for (int j = 0; j < dateMultiple2.size(); j++) {
 
 			String text = dateMultiple2.get(j).getText();
-			if (text.equalsIgnoreCase("29")) {
+			if (text.equalsIgnoreCase("30")) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].click();", dateMultiple2.get(j));
 				break;
